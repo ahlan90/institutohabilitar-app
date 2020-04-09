@@ -1,0 +1,14 @@
+<div class="mb-4 mt-2">
+  <h1 class="text-blue text-700 mb-1">
+    {{ microciclo.titulo }}
+  </h1>
+
+  <mat-divider></mat-divider>
+
+  <div class="row">
+    <div class="col-6" *ngFor="let sessao of microciclo.sessoes">
+      <app-treino-item [treino]="sessao">
+      </app-treino-item>
+    </div>
+  </div>
+</div>

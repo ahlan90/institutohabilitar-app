@@ -1,0 +1,30 @@
+<div class="content">
+    <div class="login-page">
+
+        <div class="form">
+            <img id="logo" src="assets/midia/distintivo-cbmes.png" />
+            <h3 class="mt-2">Seja bem vindo(a) ao CBMES</h3>
+
+            <span *ngIf="loginErro" class="text-danger"> Erro ao logar, por favor tente novamente!</span>
+
+            <form id="formLogin" class="login-form mt-3" role="form" (submit)="login()">
+
+                <input type="text" class="form-control loginTexto" id="username" name="username"
+                    [(ngModel)]="credentials.username" placeholder="Login" />
+                <input type="password" class="form-control loginTexto" id="password" name="password"
+                    [(ngModel)]="credentials.password" placeholder="Senha" (keyup)="onKey($event)" />
+
+                <button *ngIf="!carregando; else spinner" type="button" id="botao-login"
+                    (click)="login()">LOGIN</button>
+
+                <ng-template #spinner>
+                    <div class="spinner-border m-3" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </ng-template>
+            </form>
+
+        </div>
+    </div>
+
+</div>
