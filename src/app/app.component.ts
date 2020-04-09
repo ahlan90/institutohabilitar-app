@@ -13,7 +13,8 @@ export class AppComponent {
   constructor(
     private authService: AuthService,
     private tokenService: TokenService
-  ) {}
+  ) {
+  }
 
   logout() {
     this.authService.logout();

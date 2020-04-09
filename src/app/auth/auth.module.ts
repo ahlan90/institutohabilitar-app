@@ -8,13 +8,15 @@ import { AuthService } from './services/auth.service';
 import { TokenService } from './services/token.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   providers: [
     {

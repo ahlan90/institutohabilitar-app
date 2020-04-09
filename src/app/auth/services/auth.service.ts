@@ -30,7 +30,6 @@ export class AuthService {
       { withCredentials: true, observe: "response" }
     ).pipe(
         tap(res => localStorage.setItem(KEY, res.body['token'])),
-        //map(() => this.tokenService.decodeToken())
       )
   }
 

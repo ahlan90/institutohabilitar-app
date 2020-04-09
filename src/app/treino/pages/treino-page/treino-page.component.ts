@@ -21,8 +21,6 @@ export class TreinoPageComponent implements OnInit {
   ngOnInit(): void {
     this.treinoService.getList()
       .subscribe(macrociclos => {
-        console.log('Macrocicilos', macrociclos);
-
       this.microciclos = macrociclos['results'][0].mesociclos[0].microciclos;
     });
   }

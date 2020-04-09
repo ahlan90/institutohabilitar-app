@@ -16,9 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
     private tokenService: TokenService
-  ) {
-    this.token = this.tokenService.getToken();
-  }
+  ) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -30,6 +28,8 @@ export class AuthInterceptor implements HttpInterceptor {
         headers: req.headers.set("Content-Type", "application/json")
       });
     }
+
+    this.token = this.tokenService.getToken();
 
     req = this.addAuthenticationToken(req);
 
