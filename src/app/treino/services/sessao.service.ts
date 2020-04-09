@@ -14,7 +14,7 @@ export class SessaoService {
   constructor(
     private http: HttpClient
   ) {
-    this.apiURL = environment.api + '/sessoes';
+    this.apiURL = environment.api + '/api/sessoes';
   }
 
   getById(id): Observable<Sessao> {

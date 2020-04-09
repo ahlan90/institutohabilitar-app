@@ -25,7 +25,7 @@ export class AuthService {
   login({ username, password }: Credentials){
 
     return this.http.post(
-      environment.api + "-token-auth/",
+      environment.api + "/api-token-auth/",
       { username, password },
       { withCredentials: true, observe: "response" }
     ).pipe(
