@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { User } from '../models/user';
-import { of } from 'rxjs';
+import { of, BehaviorSubject } from 'rxjs';
 
 const KEY = 'JWT-TOKEN';
 
@@ -10,6 +10,8 @@ const KEY = 'JWT-TOKEN';
   providedIn: 'root'
 })
 export class TokenService {
+
+  private tokenSubject = new BehaviorSubject<string>(null);
 
   constructor() { }
 
@@ -20,7 +22,6 @@ export class TokenService {
   }
 
   decodeToken(): User {
-
     return this.jwtHelper.decodeToken(this.getToken()) as User;
   }
 
@@ -32,12 +33,18 @@ export class TokenService {
     return window.localStorage.getItem(KEY);
   }
 
+  getTokenAsObservable() {
+    return this.tokenSubject.asObservable();
+  }
+
   setToken(token) {
     window.localStorage.setItem(KEY, token);
+    this.tokenSubject.next(token);
   }
 
   removeToken() {
     window.localStorage.removeItem(KEY);
+    this.tokenSubject.next(null);
   }
 
 }

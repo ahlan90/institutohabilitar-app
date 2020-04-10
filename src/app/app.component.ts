@@ -8,13 +8,28 @@ import { of } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  token$;
+  token;
 
   constructor(
     private authService: AuthService,
     private tokenService: TokenService
-  ) {
+  ) {}
+
+
+  ngOnInit(): void {
+    this.token$ = this.tokenService.getTokenAsObservable();
+
+    this.token$.subscribe(res => {
+      console.log('VALOR', res);
+      this.token = res;
+
+    })
+
   }
+
 
   logout() {
     this.authService.logout();

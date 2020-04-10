@@ -29,12 +29,12 @@ export class AuthService {
       { username, password },
       { withCredentials: true, observe: "response" }
     ).pipe(
-        tap(res => localStorage.setItem(KEY, res.body['token'])),
+        tap(res => this.tokenService.setToken(res.body['token'])),
       )
   }
 
   logout() {
-    localStorage.removeItem(KEY)
+    this.tokenService.removeToken();
     this.router.navigate(['login'])
   }
 

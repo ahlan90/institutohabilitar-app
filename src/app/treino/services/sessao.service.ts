@@ -18,6 +18,6 @@ export class SessaoService {
   }
 
   getById(id): Observable<Sessao> {
-    return this.http.get<Sessao>(this.apiURL + `/${id}`);
+    return this.http.get<Sessao>(this.apiURL + `${id}/`);
   }
 }

@@ -1,5 +1,6 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row class="d-flex justify-content-between">
+<mat-toolbar color="primary" class="fixed-top" *ngIf="token">
+  <mat-toolbar-row
+    class="d-flex justify-content-between">
     <span>Instituto Habilitar</span>
     <mat-icon
       aria-hidden="false"
@@ -10,6 +11,6 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="container-fluid pt-2">
+<div class="container-fluid mt-5 pt-2">
   <router-outlet></router-outlet>
 </div>
