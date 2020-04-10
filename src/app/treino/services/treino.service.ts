@@ -15,7 +15,7 @@ export class TreinoService {
   constructor(
     private http: HttpClient
   ) {
-    this.apiURL = environment.api + '/api/macrociclos';
+    this.apiURL = environment.api + '/api/macrociclos/';
   }
 
   getList() {
