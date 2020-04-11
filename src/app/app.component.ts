@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from './auth/services/auth.service';
 import { TokenService } from './auth/services/token.service';
 import { of } from 'rxjs';
@@ -8,7 +8,7 @@ import { of } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   token$;
   token;
@@ -23,13 +23,13 @@ export class AppComponent implements OnInit {
     this.token$ = this.tokenService.getTokenAsObservable();
 
     this.token$.subscribe(res => {
-      console.log('VALOR', res);
       this.token = res;
-
-    })
-
+    });
   }
 
+  ngOnDestroy(): void {
+    this.token$.unsubscribe();
+  }
 
   logout() {
     this.authService.logout();

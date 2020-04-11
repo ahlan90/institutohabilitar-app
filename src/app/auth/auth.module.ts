@@ -9,9 +9,13 @@ import { TokenService } from './services/token.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
+import { InscricaoComponent } from './pages/inscricao/inscricao.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [
+    LoginComponent,
+    InscricaoComponent
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,

@@ -9,7 +9,7 @@
 
       <span *ngIf="loginErro" class="text-danger"> Erro ao logar, por favor tente novamente!</span>
 
-      <form id="formLogin" class="login-form mt-3" role="form" (submit)="login()">
+      <form id="formLogin" class="login-form mt-3" role="form" (submit)="signIn()">
 
         <div class="col-12">
           <mat-form-field appearance="outline">
@@ -20,23 +20,30 @@
 
         <div class="col-12">
           <mat-form-field appearance="outline">
-            <mat-label>Senha</mat-label>
-            <input matInput [(ngModel)]="credentials.password" name="password" (keyup)="onKey($event)" type="password">
+            <mat-label>Nome</mat-label>
+            <input matInput [(ngModel)]="credentials.first_name" name="first_name">
           </mat-form-field>
         </div>
 
-        <div class="col-12 text-center">
-          <button mat-raised-button color="primary" class="btn btn-block" *ngIf="!carregando; else spinner"
-            (click)="login()">
-            LOGIN
-          </button>
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="credentials.email" name="email">
+          </mat-form-field>
+        </div>
+
+        <div class="col-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput [(ngModel)]="credentials.password" name="password"  type="password">
+          </mat-form-field>
         </div>
 
 
-        <div class="col-12 mt-2">
-          <button mat-button class="btn btn-block" color="accent"
-            (click)="inscricao()">
-            INSCREVA-SE
+        <div class="col-12 text-center">
+          <button mat-raised-button color="primary" class="btn btn-block" *ngIf="!carregando; else spinner"
+            (click)="signIn()">
+            CADASTRAR
           </button>
         </div>
 

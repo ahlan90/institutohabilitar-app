@@ -42,7 +42,10 @@ export class LoginComponent implements OnInit {
           this.carregando = false;
         }
       )
+  }
 
+  inscricao() {
+    this.route.navigate(['inscricao']);
   }
 
   onKey(event: any) {

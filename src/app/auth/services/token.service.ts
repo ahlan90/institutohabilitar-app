@@ -34,6 +34,8 @@ export class TokenService {
   }
 
   getTokenAsObservable() {
+    const token = this.getToken();
+    this.tokenSubject.next(token);
     return this.tokenSubject.asObservable();
   }
 
