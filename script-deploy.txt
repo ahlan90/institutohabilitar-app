@@ -1,1 +1,1 @@
-ng build --prod --base-href ./
+ng deploy --base-href https://ahlan90.github.io/institutohabilitar-app/
