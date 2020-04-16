@@ -1,5 +1,5 @@
 
-<img id="logo-inicio" class="img-fluid rounded mx-auto d-block" src="../../../../assets/img/logo.png">
+<img id="logo-inicio" class="img-fluid rounded mx-auto d-block" src="http://www.institutohabilitar.com/wp-content/uploads/2020/04/logo.png">
 
 <div class="row">
   <div class="col-md-4 offset-md-4">
@@ -8,12 +8,12 @@
 
       <span *ngIf="loginErro" class="text-danger"> Erro ao logar, por favor tente novamente!</span>
 
-      <form class="my-4" (submit)="login()">
+      <form class="my-4" (submit)="login()" autocomplete="off">
 
         <div class="col-12">
           <mat-form-field appearance="outline">
             <mat-label class="text-light">Login</mat-label>
-            <input matInput [(ngModel)]="credentials.username" name="username" class="text-light">
+            <input matInput [(ngModel)]="credentials.username" name="username" class="text-light"  >
           </mat-form-field>
         </div>
 
@@ -35,7 +35,7 @@
         </div>
 
         <ng-template #spinner>
-          <div class="spinner-border m-3" role="status">
+          <div class="spinner-border text-orange m-3" role="status">
             <span class="sr-only">Loading...</span>
           </div>
         </ng-template>
