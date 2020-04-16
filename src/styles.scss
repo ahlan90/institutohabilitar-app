@@ -16,7 +16,12 @@ $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-html, body { height: 100%; }
+$bg-gray-ih: #edebeb;
+
+html, body { 
+  height: 100%;
+  background-color: $bg-gray-ih;
+}
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -30,7 +35,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .text-blue {
-  color: #007bff !important;
+  color: #5661ac !important;
 }
 
 .text-700 {
@@ -39,4 +44,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 mat-form-field {
   width: 100% !important;
+}
+
+.bg-gray-ih { 
+  background-color: $bg-gray-ih;
+}
+
+.bg-blue-ih {
+  background-color: #5661ac;
+}
+
+.bg-orange-ih {
+  background-color: #e97729;
 }

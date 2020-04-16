@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "institutohabilitar-app"
+  "defaultProject": "institutohabilitar-app",
+  "cli": {
+    "analytics": "78d9f89c-3a16-4c84-8f2d-3fb4cf13cbcc"
+  }
 }
