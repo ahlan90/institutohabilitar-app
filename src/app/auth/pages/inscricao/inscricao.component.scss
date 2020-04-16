@@ -1,5 +1,5 @@
 .form {
-  border-radius: 5px;
+    border-radius: 5px;
 }
 
 // mat-icon-stepper selected color change 
@@ -52,7 +52,7 @@
 input:-internal-autofill-selected {
     background-color: #000000 !important;
 }
-
-input { 
-    color: white;
+  
+#titulo {
+    text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
 }

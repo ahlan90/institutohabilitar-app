@@ -38,9 +38,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #5661ac !important;
 }
 
+.text-orange {
+  color: #e97729 !important;
+}
+
 .text-700 {
   font-weight: 700 !important;
 }
+
 
 mat-form-field {
   width: 100% !important;
@@ -56,4 +61,8 @@ mat-form-field {
 
 .bg-orange-ih {
   background-color: #e97729;
+}
+
+#logo-inicio {
+  width: 200px;
 }
