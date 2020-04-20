@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="fixed-top" *ngIf="token">
+<!-- <mat-toolbar color="primary" class="fixed-top" *ngIf="token">
   <mat-toolbar-row
     class="d-flex justify-content-between">
     <span>Instituto Habilitar</span>
@@ -13,4 +13,36 @@
 
 <div class="container-fluid mt-5 pt-2 bg-gray-ih">
   <router-outlet></router-outlet>
+</div> -->
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar d-flex justify-content-between">
+      <h1 class="example-app-name">Instituto Habilitar</h1>
+      <mat-icon
+      aria-hidden="false"
+      aria-label="Logout icon"
+      (click)="logout()">
+      power_settings_new
+    </mat-icon>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+          fixedTopGap="56">
+          <mat-nav-list class="sidenav-list">
+              <a mat-list-item routerLink="/professor">
+                  <mat-icon>person</mat-icon>
+                  <span class="ml-2">Perfil</span>
+              </a>
+              <a mat-list-item routerLink="/aluno">
+                  <mat-icon>assignment_ind</mat-icon>
+                  <span class="ml-2">Aluno</span>
+              </a>
+          </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="container-fluid pt-3">
+          <router-outlet></router-outlet>
+      </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
