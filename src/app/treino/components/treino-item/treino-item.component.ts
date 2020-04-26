@@ -8,9 +8,8 @@ import { TreinoService } from '../../services/treino.service';
   template: `
     <button
       mat-raised-button (click)="navigate(treino)"
-      class="card-treino mt-3 p-3" color="accent">
-      <h4>{{ treino.titulo }}</h4>
-      <h5>{{ treino.subtitulo }}</h5>
+      class="card-treino mt-4 p-4" color="accent">
+      <h3 class="m-0">{{ treino.titulo }}</h3>
     </button>
   `,
   styles:[`

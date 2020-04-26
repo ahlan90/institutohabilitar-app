@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Sessao } from '../../models/sessao';
 import { SessaoService } from '../../services/sessao.service';
+import { Exercicio } from '../../models/exercicio';
+import { ExercicioService } from '../../services/exercicio.service';
 
 @Component({
   selector: 'app-treino-detail-page',
   templateUrl: './treino-detail-page.component.html',
-  styleUrls: ['./treino-detail-page.component.css']
+  styleUrls: ['./treino-detail-page.component.scss']
 })
 export class TreinoDetailPageComponent implements OnInit {
 
@@ -20,6 +22,7 @@ export class TreinoDetailPageComponent implements OnInit {
 
   constructor(
     private sessaoService: SessaoService,
+    private exercicioService: ExercicioService,
     private route: ActivatedRoute
   ) { }
 
@@ -50,7 +53,14 @@ export class TreinoDetailPageComponent implements OnInit {
     this.step = index;
   }
 
-  nextStep() {
+  nextStep(exercicio: Exercicio) {
+    if (!exercicio.visualizado) {
+      console.log('Entrou');
+      this.exercicioService.setVisualizado(exercicio.id).subscribe(res => {
+        console.log('Funcionou');
+        exercicio.visualizado = true;
+      });
+    }
     this.index++;
     this.step = this.indexes[this.index];
   }

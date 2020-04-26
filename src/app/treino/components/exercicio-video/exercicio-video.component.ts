@@ -10,9 +10,9 @@ import {
 import { Exercicio } from '../../models/exercicio';
 
 @Component({
-  selector: 'app-exercicio-item',
-  templateUrl: './exercicio-item.component.html',
-  styleUrls: ['./exercicio-item.component.css'],
+  selector: 'app-exercicio-video',
+  templateUrl: './exercicio-video.component.html',
+  styleUrls: ['./exercicio-video.component.css'],
 })
 export class ExercicioItemComponent implements OnInit, OnChanges {
 

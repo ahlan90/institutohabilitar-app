@@ -1,5 +1,4 @@
 <h2 class="text-blue text-700 mb-1">{{ sessao?.titulo }}</h2>
-<h4 class="text-muted text-700 mb-1">{{ sessao?.subtitulo }}</h4>
 
 <mat-divider></mat-divider>
 
@@ -11,22 +10,28 @@
     *ngFor="let exercicio of sessao?.exercicios"
     [expanded]="step === exercicio.ordem"
     (opened)="setStep(exercicio.ordem)"
+    [ngClass]="{'bg-visualizado': exercicio.visualizado}"
   >
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ exercicio.titulo }}
+    <mat-expansion-panel-header [ngClass]="{'bg-visualizado': exercicio.visualizado}">
+      <mat-panel-title class="align-items-center">
+        <mat-icon
+          *ngIf="exercicio.visualizado"
+          class="icone-check text-success">
+          checked
+        </mat-icon>
+        <span class="titulo-exercicio px-3">{{ exercicio.titulo }}</span>
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <app-exercicio-item [exercicio]="exercicio">
-    </app-exercicio-item>
+    <app-exercicio-video [exercicio]="exercicio">
+    </app-exercicio-video>
 
-    <mat-action-row>
+    <mat-action-row class="px-2">
 
       <button
         mat-raised-button
         *ngIf="!isFirstStep()"
-        class="btn btn-warning"
+        class="btn btn-warning btn-block m-0 mx-1"
         (click)="prevStep()">
         Anterior
       </button>
@@ -34,12 +39,14 @@
       <button  *ngIf="!isLastStep()"
        mat-raised-button
        color="primary"
-       (click)="nextStep()">
+       class="btn btn-block m-0 mx-1"
+       (click)="nextStep(exercicio)">
        Próximo
       </button>
 
       <button *ngIf="isLastStep()"
         mat-raised-button
+        class="btn btn-block m-0 mx-1"
         color="accent">
         Finalizar
       </button>

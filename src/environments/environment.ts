@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: 'https://institutohabilitar-dev.herokuapp.com',
+  //api: 'https://institutohabilitar-dev.herokuapp.com',
+  api: 'http://127.0.0.1:8000',
 };
 
 /*

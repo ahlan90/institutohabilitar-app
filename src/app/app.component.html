@@ -1,23 +1,7 @@
-<!-- <mat-toolbar color="primary" class="fixed-top" *ngIf="token">
-  <mat-toolbar-row
-    class="d-flex justify-content-between">
-    <span>Instituto Habilitar</span>
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Logout icon"
-      (click)="logout()">
-      power_settings_new
-    </mat-icon>
-  </mat-toolbar-row>
-</mat-toolbar>
 
-<div class="container-fluid mt-5 pt-2 bg-gray-ih">
-  <router-outlet></router-outlet>
-</div> -->
-
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="example-toolbar d-flex justify-content-between">
-      <h1 class="example-app-name">Instituto Habilitar</h1>
+<div class="ih-container" [class.ih-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="ih-toolbar d-flex justify-content-between"  *ngIf="token">
+      <h1 class="ih-app-name"><span class="text-orange">Instituto</span> Habilitar</h1>
       <mat-icon
       aria-hidden="false"
       aria-label="Logout icon"
@@ -41,7 +25,7 @@
           </mat-nav-list>
       </mat-sidenav>
 
-      <mat-sidenav-content class="container-fluid pt-3">
+      <mat-sidenav-content class="container-fluid pt-2 bg-gray-ih">
           <router-outlet></router-outlet>
       </mat-sidenav-content>
   </mat-sidenav-container>
