@@ -31,7 +31,7 @@
       <button
         mat-raised-button
         *ngIf="!isFirstStep()"
-        class="btn btn-warning btn-block m-0 mx-1"
+        class="btn btn-warning btn-block m-0 mx-1 btn-exercicio"
         (click)="prevStep()">
         Anterior
       </button>
@@ -39,18 +39,20 @@
       <button  *ngIf="!isLastStep()"
        mat-raised-button
        color="primary"
-       class="btn btn-block m-0 mx-1"
+       class="btn btn-block m-0 mx-1 btn-exercicio"
        (click)="nextStep(exercicio)">
        Próximo
       </button>
 
       <button *ngIf="isLastStep()"
         mat-raised-button
-        class="btn btn-block m-0 mx-1"
-        color="accent">
+        class="btn btn-block m-0 mx-1 btn-exercicio"
+        color="accent"
+        (click)="finishStep(exercicio)">
         Finalizar
       </button>
     </mat-action-row>
+
   </mat-expansion-panel>
 
 </mat-accordion>

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Sessao } from '../../models/sessao';
 import { SessaoService } from '../../services/sessao.service';
 import { Exercicio } from '../../models/exercicio';
 import { ExercicioService } from '../../services/exercicio.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-treino-detail-page',
@@ -23,13 +24,13 @@ export class TreinoDetailPageComponent implements OnInit {
   constructor(
     private sessaoService: SessaoService,
     private exercicioService: ExercicioService,
-    private route: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
-    //this.sessao = this.treinoService.getCurrentSessao();
 
-    this.route.params.subscribe((param) => {
+    this.activatedRoute.params.subscribe((param) => {
 
       if (param.id) {
 
@@ -55,9 +56,7 @@ export class TreinoDetailPageComponent implements OnInit {
 
   nextStep(exercicio: Exercicio) {
     if (!exercicio.visualizado) {
-      console.log('Entrou');
       this.exercicioService.setVisualizado(exercicio.id).subscribe(res => {
-        console.log('Funcionou');
         exercicio.visualizado = true;
       });
     }
@@ -68,6 +67,16 @@ export class TreinoDetailPageComponent implements OnInit {
   prevStep() {
     this.index--;
     this.step = this.indexes[this.index];
+  }
+
+  finishStep(exercicio) {
+    if (!exercicio.visualizado) {
+      this.exercicioService.setVisualizado(exercicio.id).subscribe(res => {
+        exercicio.visualizado = true;
+      });
+    }
+    this.location.back();
+    this.index++;
   }
 
   isLastStep() {

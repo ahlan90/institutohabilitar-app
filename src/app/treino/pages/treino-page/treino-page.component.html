@@ -2,6 +2,7 @@
   *ngFor="let microciclo of microciclos">
 
   <app-microciclo-item
+    *ngIf="microciclo.sessoes?.length > 0"
     class="col-12"
     [microciclo]="microciclo">
   </app-microciclo-item>
