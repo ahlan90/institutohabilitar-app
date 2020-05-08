@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TreinoService } from '../../services/treino.service';
-import { Sessao } from '../../models/sessao';
-import { Observable } from 'rxjs';
-import { Macrociclo } from '../../models/macrociclo';
 import { Microciclo } from '../../models/mesociclo';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-treino-page',
@@ -19,10 +17,13 @@ export class TreinoPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.treinoService.getList()
+      .pipe(take(1))
       .subscribe(macrociclos => {
-      this.microciclos = macrociclos['results'][0].mesociclos[0].microciclos;
+      this.microciclos = macrociclos[0].mesociclos[0].microciclos;
     });
+
   }
 
 }

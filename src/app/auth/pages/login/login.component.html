@@ -1,5 +1,5 @@
-
-<img id="logo-inicio" class="img-fluid rounded mx-auto d-block" src="http://www.institutohabilitar.com/wp-content/uploads/2020/04/logo.png">
+<img id="logo-inicio" class="img-fluid rounded mx-auto d-block"
+  src="http://www.institutohabilitar.com/wp-content/uploads/2020/04/logo.png">
 
 <div class="row">
   <div class="col-md-4 offset-md-4">
@@ -13,22 +13,20 @@
         <div class="col-12">
           <mat-form-field appearance="outline">
             <mat-label class="text-light">Login</mat-label>
-            <input matInput [(ngModel)]="credentials.username" name="username" class="text-light"  >
+            <input matInput [(ngModel)]="credentials.username" name="username" class="text-light">
           </mat-form-field>
         </div>
 
         <div class="col-12">
           <mat-form-field appearance="outline">
             <mat-label class="text-light">Senha</mat-label>
-            <input matInput [(ngModel)]="credentials.password" name="password" 
-              (keyup)="onKey($event)" type="password"  class="text-light">
+            <input matInput [(ngModel)]="credentials.password" name="password" (keyup)="onKey($event)" type="password"
+              class="text-light">
           </mat-form-field>
         </div>
 
         <div class="col-12 text-center mt-3">
-          <button mat-raised-button 
-          *ngIf="!carregando; else spinner"
-           class="btn btn-block bg-orange-ih text-light" 
+          <button mat-raised-button *ngIf="!carregando; else spinner" class="btn btn-block bg-orange-ih text-light"
             (click)="login()">
             ENTRAR
           </button>
@@ -42,10 +40,14 @@
       </form>
     </div>
 
-    <div class="col-12 mt-5">
-      <button mat-button class="btn btn-block text-blue" 
-        (click)="inscricao()">
+    <div class="col-12 mt-4">
+      <button mat-button class="btn btn-block text-blue" (click)="inscricao()">
         NOVA CONTA
+      </button>
+    </div>
+    <div class="col-12 mt-2x'">
+      <button mat-button class="btn btn-block text-orange" (click)="inscricao()">
+        ESQUECI A SENHA
       </button>
     </div>
   </div>

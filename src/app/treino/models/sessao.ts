@@ -5,4 +5,5 @@ export class Sessao {
     subtitulo: string;
     ordem: number;
     exercicios: Exercicio[];
+    visualizada: boolean;
 }

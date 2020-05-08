@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Sessao } from '../models/sessao';
 import { Macrociclo } from '../models/macrociclo';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class TreinoService {
     this.apiURL = environment.api + '/api/macrociclos/';
   }
 
-  getList() {
+  getList(): Observable<Macrociclo[]> {
     return this.http.get<Macrociclo[]>(this.apiURL);
   }
 }
