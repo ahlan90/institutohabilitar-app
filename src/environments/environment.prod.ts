@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: 'https://sistema.institutohabilitar.com',
+  api: 'https://institutohabilitar.herokuapp.com',
 };
