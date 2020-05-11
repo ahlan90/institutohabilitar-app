@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SignIn } from '../../models/user';
 import { SignInService } from '../../services/sign-in.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-inscricao',
@@ -22,7 +23,8 @@ export class InscricaoComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private signInService: SignInService
+    private signInService: SignInService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -37,13 +39,20 @@ export class InscricaoComponent implements OnInit {
       .subscribe(
         () => {
           this.carregando = false;
-          this.route.navigate(['']);
+          this.route.navigate(['login']);
+          this.openSnackBar('Login criado com sucesso', '');
         },
         err => {
           this.loginErro = true;
           this.carregando = false;
         }
       )
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }

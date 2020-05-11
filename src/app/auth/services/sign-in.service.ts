@@ -24,12 +24,13 @@ export class SignInService {
   signIn({ username, password, email, first_name }: SignIn){
 
     return this.http.post(
-      environment.api + "/api-token-auth/",
-      { username, password },
+      environment.api + "/sign-in/",
+      { username, first_name, email, password },
       { withCredentials: true, observe: "response" }
-    ).pipe(
-        tap(res => this.tokenService.setToken(res.body['token'])),
-      )
+    )
+    // .pipe(
+    //     tap(res => this.tokenService.setToken(res.body['token'])),
+    // )
   }
 
 
