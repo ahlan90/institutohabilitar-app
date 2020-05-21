@@ -12,7 +12,7 @@ import { Exercicio } from '../../models/exercicio';
 @Component({
   selector: 'app-exercicio-video',
   templateUrl: './exercicio-video.component.html',
-  styleUrls: ['./exercicio-video.component.css'],
+  styleUrls: ['./exercicio-video.component.scss'],
 })
 export class ExercicioItemComponent implements OnInit, OnChanges {
 
@@ -32,8 +32,6 @@ export class ExercicioItemComponent implements OnInit, OnChanges {
 
     this.setInnerWidth(window.innerWidth);
 
-    console.log('tamanho da tela', this.innerWidth);
-
   }
 
   @HostListener('window:resize', ['$event'])
@@ -50,7 +48,6 @@ export class ExercicioItemComponent implements OnInit, OnChanges {
   setVideoId() {
     let indexEq = this.exercicio.url.indexOf('=') + 1;
     this.videoId = this.exercicio.url.substring(indexEq);
-    console.log(this.videoId);
   }
 
   setInnerWidth(value: number) {

@@ -6,7 +6,7 @@ import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-treino-page',
   templateUrl: './treino-page.component.html',
-  styleUrls: ['./treino-page.component.css']
+  styleUrls: ['./treino-page.component.scss']
 })
 export class TreinoPageComponent implements OnInit {
 

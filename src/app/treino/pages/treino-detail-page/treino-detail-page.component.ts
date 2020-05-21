@@ -5,6 +5,7 @@ import { SessaoService } from '../../services/sessao.service';
 import { Exercicio } from '../../models/exercicio';
 import { ExercicioService } from '../../services/exercicio.service';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-treino-detail-page',
@@ -25,7 +26,8 @@ export class TreinoDetailPageComponent implements OnInit {
     private sessaoService: SessaoService,
     private exercicioService: ExercicioService,
     private activatedRoute: ActivatedRoute,
-    private location: Location
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -35,15 +37,13 @@ export class TreinoDetailPageComponent implements OnInit {
       if (param.id) {
 
         this.sessaoService.getById(param.id).subscribe(res => {
+
           if (res) {
-            console.log('resultado', res);
-
             this.sessao = res;
-
             this.indexes = this.sessao.exercicios.map(exercicio => exercicio.ordem);
             this.step = this.indexes[this.index];
-
           }
+
         })
       }
     })
@@ -56,9 +56,14 @@ export class TreinoDetailPageComponent implements OnInit {
 
   nextStep(exercicio: Exercicio) {
     if (!exercicio.visualizado) {
-      this.exercicioService.setVisualizado(exercicio.id).subscribe(res => {
-        exercicio.visualizado = true;
-      });
+      exercicio.visualizado = true;
+      this.exercicioService.setVisualizado(exercicio.id).subscribe(
+        res => {},
+        err => {
+          exercicio.visualizado = false;
+          console.log(err)
+          this.openSnackBar('Não foi possível atualizar o exercício', 'Ok');
+        });
     }
     this.index++;
     this.step = this.indexes[this.index];
@@ -72,10 +77,10 @@ export class TreinoDetailPageComponent implements OnInit {
   finishStep(exercicio) {
     if (!exercicio.visualizado) {
       this.exercicioService.setVisualizado(exercicio.id).subscribe(res => {
-        exercicio.visualizado = true;
+
       });
     }
-    this.location.back();
+    this.router.navigate(['']);
     this.index++;
   }
 
@@ -85,6 +90,12 @@ export class TreinoDetailPageComponent implements OnInit {
 
   isFirstStep() {
     return this.step === this.indexes[0];
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }
