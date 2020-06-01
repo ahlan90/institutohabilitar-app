@@ -1,0 +1,82 @@
+
+
+<mat-card *ngIf="checkDor != true">
+  <mat-card-content>
+
+    <h2>Sente dores com frequência?</h2>
+
+    <mat-radio-group class="d-flex justify-content-between" [(ngModel)]="checkDor" name="checkDor">
+      <mat-radio-button value="true">Sim</mat-radio-button>
+      <mat-radio-button value="false">Não</mat-radio-button>
+    </mat-radio-group>
+
+    </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="!checkDor">
+  <mat-card-content>
+
+    <h2>Onde sente dor?</h2>
+
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="dor.cabeca" name="cabeca">Cabeça</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="dor.pescoco" name="pescoco">Pescoço</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="dor.ombros" name="ombros">Ombros</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="dor.bracos" name="bracos">Braços</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="dor.maos" name="maos">Mãos</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="dor.quadril" name="quadril">Quadril (bacia)</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="dor.joelhos" name="joelhos">Joelhos</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="dor.pes" name="pes">Pés</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-form-field>
+        <mat-label>Outras</mat-label>
+        <input matInput type="text" [(ngModel)]="dor.outros" name="outros">
+      </mat-form-field>
+    </div>
+    <div class="mb-2">
+      <mat-label class="mb-1 text-bold"><strong>Quanto dói?</strong></mat-label>
+      <div class="mt-2 mb-1 d-flex justify-content-between">
+        <small>Pouco</small>
+        <small>Muito</small>
+      </div>
+      <mat-radio-group
+        class="d-flex justify-content-between"
+        [(ngModel)]="dor.escala_dor"
+        name="escala_dor">
+        <mat-radio-button value="1">1</mat-radio-button>
+        <mat-radio-button value="2">2</mat-radio-button>
+        <mat-radio-button value="3">3</mat-radio-button>
+        <mat-radio-button value="4">4</mat-radio-button>
+        <mat-radio-button value="5">5</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>
+
+{{checkDor}}
+
+<button
+  *ngIf="checkDor != null"
+  class="mt-2 btn btn-block btn-danger"
+  mat-raised-button
+  (click)="addQuestionario()"
+  [routerLink]="['/anamnse/dores']">
+  FINALIZAR
+</button>

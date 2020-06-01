@@ -1,0 +1,46 @@
+<mat-card>
+  <mat-card-content>
+
+    <h4>Quais doenças do coração você tem?</h4>
+
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="doencasCoracao.infarto_miocardio" name="infarto_miocardio">Infarto do miocárdio</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="doencasCoracao.doenca_valvar" name="doenca_valvar">Doença valvar</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="doencasCoracao.cirurgia_cardiaca" name="cirurgia_cardiaca">Cirurgia cardíaca (Revascularização)</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="doencasCoracao.insuficiencia_cardiaca" name="insuficiencia_cardiaca">Insuficiência cardíaca</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="doencasCoracao.arritmia_cardiaca" name="arritmia_cardiaca">Arritmia cardíaca</mat-checkbox>
+    </div>
+    <div class="mb-2" >
+      <mat-checkbox [(ngModel)]="doencasCoracao.angioplastia_cardiaca" name="angioplastia_cardiaca">Angioplastia cardíaca (stent)</mat-checkbox>
+    </div>
+    <div class="mb-2" >
+      <mat-checkbox [(ngModel)]="doencasCoracao.marcapasso_implantavel" name="marcapasso_implantavel">Marcapasso implantável</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="doencasCoracao.doenca_congenita" name="trabalho_remunerado">Doença congênita (nascença)</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-form-field>
+      <mat-label>Outras</mat-label>
+      <input matInput type="text" [(ngModel)]="doencasCoracao.outros" name="outros">
+    </mat-form-field>
+    </div>
+
+    <button
+      class="btn btn-block"
+      mat-raised-button
+      color="primary"
+      (click)="addDoencasCoracao()"
+      [routerLink]="['/anamnse/saude']">
+      PRÓXIMO
+    </button>
+  </mat-card-content>
+</mat-card>

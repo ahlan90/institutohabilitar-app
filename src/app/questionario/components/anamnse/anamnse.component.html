@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-content>
+
+    <h1>Preencha sua Anamnse</h1>
+
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.vestir_propria_roupa" name="vestir_propria_roupa">Vestir a própria roupa</mat-checkbox>
+    </div>
+    <div class="mb-2">
+    <mat-checkbox [(ngModel)]="anamnse.arrumar_cama" name="arrumar_cama">Arrumar a cama</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.trabalho_remunerado" name="trabalho_remunerado">Trabalho remunerado ou voluntário</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.alimentar" name="alimentar">Alimentar-se</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.cozinhar" name="cozinhar">Cozinhar</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.ir_banco" name="ir_banco">Ir ao banco, supermercado, farmácia etc</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.tomar_banho" name="tomar_banho">Tomar banho</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.lavar_roupa" name="lavar_roupa">Lavar roupa</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.pratica_esporte" name="pratica_esporte">Prática de esportes</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.calca_amarra_sapatos" name="calca_amarra_sapatos">Calçar/amarrar os sapatos</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.arruma_casa" name="arruma_casa">Arrumar a casa</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="anamnse.subir_escadas" name="subir_escadas">Subir alguns patamares de escada</mat-checkbox>
+    </div>
+
+    <button
+      class="btn btn-block"
+      mat-raised-button
+      color="primary"
+      (click)="addAnamnse()"
+      [routerLink]="['/anamnse/coracao']">
+      PRÓXIMO
+    </button>
+  </mat-card-content>
+</mat-card>

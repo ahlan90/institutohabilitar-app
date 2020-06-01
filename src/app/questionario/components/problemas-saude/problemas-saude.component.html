@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-content>
+
+    <h4>Possui algum destes problemas de saúde?</h4>
+
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="problemasSaude.hipertensao_arterial" name="hipertensao_arterial">Hipertensão arterial (Pressão alta)</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="problemasSaude.diabetes" name="diabetes">Diabetes</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="problemasSaude.colesterol_alto" name="colesterol_alto">Colesterol alto</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="problemasSaude.doenca_pulmonar" name="doenca_pulmonar">Doença pulmonar</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="problemasSaude.doenca_neurologica" name="doenca_neurologica">Doença neurológica</mat-checkbox>
+    </div>
+    <div class="mb-2">
+        <mat-form-field>
+        <mat-label>Outras</mat-label>
+        <input matInput type="text" [(ngModel)]="problemasSaude.outros" name="outros">
+      </mat-form-field>
+    </div>
+
+    <button
+      class="btn btn-block"
+      mat-raised-button
+      color="primary"
+      (click)="addProblemasSaude()"
+      [routerLink]="['/anamnse/sintomas']">
+      PRÓXIMO
+    </button>
+  </mat-card-content>
+</mat-card>

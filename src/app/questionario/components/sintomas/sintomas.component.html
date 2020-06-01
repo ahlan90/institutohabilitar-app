@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-content>
+
+    <h4>Quais dos seguintes sintomas já teve em mais de uma ocasião?</h4>
+
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="sintomas.queimacao_pernas" name="queimacao_pernas">Queimação nas pernas ao percorrer pequenas distâncias</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="sintomas.vergitge" name="vergitge">Vertigem/Desmaio</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox
+        [(ngModel)]="sintomas.inseguranca_realizar_exercicio"
+         name="inseguranca_realizar_exercicio">
+         Insegurança ao Realizar Exercícios
+        </mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="sintomas.falta_de_ar" name="falta_de_ar">Falta de ar sem motivo de esforço</mat-checkbox>
+    </div>
+    <div class="mb-2">
+      <mat-checkbox [(ngModel)]="sintomas.desconforto_toraxico" name="desconforto_toraxico">Desconforto torácico (pressão forte no peito)</mat-checkbox>
+    </div>
+
+    <button
+      class="btn btn-block"
+      mat-raised-button
+      color="primary"
+      (click)="addSintomas()"
+      [routerLink]="['/anamnse/dores']">
+      PRÓXIMO
+    </button>
+  </mat-card-content>
+</mat-card>

@@ -13,6 +13,11 @@ const routes: Routes = [
     path: 'treino',
     canActivate: [AuthGuardService],
     loadChildren: () => import('./treino/treino.module').then(m => m.TreinoModule)
+  },
+  {
+    path: 'anamnse',
+    canActivate: [AuthGuardService],
+    loadChildren: () => import('./questionario/questionario.module').then(m => m.QuestionarioModule)
   }
 ];
 
