@@ -1,8 +1,8 @@
 <mat-card>
   <mat-card-content>
 
-    <h4>Quais doenças do coração você tem?</h4>
-
+    <h4>Agora me diga: quais doenças do coração você tem? Caso não tenha nenhuma, ótimo, é só avançar.</h4>
+    <hr>
     <div class="mb-2">
       <mat-checkbox [(ngModel)]="doencasCoracao.infarto_miocardio" name="infarto_miocardio">Infarto do miocárdio</mat-checkbox>
     </div>
@@ -39,7 +39,7 @@
       mat-raised-button
       color="primary"
       (click)="addDoencasCoracao()"
-      [routerLink]="['/anamnse/saude']">
+      [routerLink]="['/questionario/saude']">
       PRÓXIMO
     </button>
   </mat-card-content>

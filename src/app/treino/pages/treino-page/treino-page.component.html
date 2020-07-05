@@ -1,10 +1,17 @@
-<div class="row"
-  *ngFor="let microciclo of microciclos">
+<div class="lista-treino">
+  <div class="row" *ngFor="let microciclo of microciclos">
 
-  <app-microciclo-item
-    *ngIf="microciclo.sessoes?.length > 0"
-    class="col-12"
-    [microciclo]="microciclo">
-  </app-microciclo-item>
+    <app-microciclo-item *ngIf="microciclo.sessoes?.length > 0" class="col-12" [microciclo]="microciclo">
+    </app-microciclo-item>
 
+  </div>
 </div>
+
+<footer class="footer p-2">
+  <div class="container">
+    <button mat-raised-button [routerLink]="['/questionario']" class="btn btn-block btn-danger">
+      <h2 class="text-btn mt-1 pb-0 mb-0">TENHA UM TREINO</h2>
+      <h2 class="text-btn mb-1 pt-0 mt-0">PERSONALIZADO</h2>
+    </button>
+  </div>
+</footer>

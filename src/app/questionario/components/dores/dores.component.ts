@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionarioService } from '../../services/questionario.service';
 import { Dor } from '../../models/dor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dores',
@@ -13,7 +14,8 @@ export class DoresComponent implements OnInit {
   checkDor = null;
 
   constructor(
-    private questionarioService: QuestionarioService
+    private questionarioService: QuestionarioService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class DoresComponent implements OnInit {
     console.log(this.dor);
     this.questionarioService.setDor(this.dor);
     this.questionarioService.addQuestionario().subscribe(res => {
+      this.router.navigate(['questionario/planos'])
     });
   }
 }

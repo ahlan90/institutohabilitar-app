@@ -1,8 +1,8 @@
 <mat-card>
   <mat-card-content>
 
-    <h4>Possui algum destes problemas de saúde?</h4>
-
+    <h4>Você possui algum dos problemas de saúde que estão listados abaixo?</h4>
+      <hr>
     <div class="mb-2">
       <mat-checkbox [(ngModel)]="problemasSaude.hipertensao_arterial" name="hipertensao_arterial">Hipertensão arterial (Pressão alta)</mat-checkbox>
     </div>
@@ -30,7 +30,7 @@
       mat-raised-button
       color="primary"
       (click)="addProblemasSaude()"
-      [routerLink]="['/anamnse/sintomas']">
+      [routerLink]="['/questionario/sintomas']">
       PRÓXIMO
     </button>
   </mat-card-content>

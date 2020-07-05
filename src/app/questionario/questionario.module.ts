@@ -9,6 +9,7 @@ import { ProblemasSaudeComponent } from './components/problemas-saude/problemas-
 import { SintomasComponent } from './components/sintomas/sintomas.component';
 import { DoresComponent } from './components/dores/dores.component';
 import { FormsModule } from '@angular/forms';
+import { PlanosComponent } from './components/planos/planos.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     DoencasCoracaoComponent,
     ProblemasSaudeComponent,
     SintomasComponent,
-    DoresComponent
+    DoresComponent,
+    PlanosComponent
   ],
   imports: [
     CommonModule,

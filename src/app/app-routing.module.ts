@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: () => import('./treino/treino.module').then(m => m.TreinoModule)
   },
   {
-    path: 'anamnse',
+    path: 'questionario',
     canActivate: [AuthGuardService],
     loadChildren: () => import('./questionario/questionario.module').then(m => m.QuestionarioModule)
   }

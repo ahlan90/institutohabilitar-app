@@ -1,22 +1,8 @@
 
-
-<mat-card *ngIf="checkDor != true">
+<mat-card >
   <mat-card-content>
 
-    <h2>Sente dores com frequência?</h2>
-
-    <mat-radio-group class="d-flex justify-content-between" [(ngModel)]="checkDor" name="checkDor">
-      <mat-radio-button value="true">Sim</mat-radio-button>
-      <mat-radio-button value="false">Não</mat-radio-button>
-    </mat-radio-group>
-
-    </mat-card-content>
-</mat-card>
-
-<mat-card *ngIf="checkDor">
-  <mat-card-content>
-
-    <h2>Onde sente dor?</h2>
+    <h4>Você sente alguma dor? Caso não sinta, é só avançar, ok?</h4>
 
     <div class="mb-2">
       <mat-checkbox [(ngModel)]="dor.cabeca" name="cabeca">Cabeça</mat-checkbox>
@@ -70,13 +56,9 @@
   </mat-card-content>
 </mat-card>
 
-{{checkDor}}
-
 <button
-  *ngIf="checkDor != null"
   class="mt-2 btn btn-block btn-danger"
   mat-raised-button
-  (click)="addQuestionario()"
-  [routerLink]="['/anamnse/dores']">
+  (click)="addQuestionario()">
   FINALIZAR
 </button>

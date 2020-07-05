@@ -1,0 +1,17 @@
+<h1>Planos disponíveis</h1>
+
+
+<button mat-raised-button 
+*ngFor="let plano of planos | async"
+(click)="redirectUrl(plano.link)"
+color="primary"
+class="btn btn-block btn-plano">
+  <h2 class="text-btn mt-1">{{ plano.titulo }}</h2>
+  <h2 class="text-btn mb-1">{{ plano.subtitulo }}</h2>  
+</button>
+
+
+<button mat-raised-button 
+    [routerLink]="['/']" class="btn btn-block btn-danger mt-3">
+    CANCELAR
+</button>

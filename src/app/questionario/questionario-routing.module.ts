@@ -5,6 +5,7 @@ import { ProblemasSaudeComponent } from './components/problemas-saude/problemas-
 import { SintomasComponent } from './components/sintomas/sintomas.component';
 import { DoresComponent } from './components/dores/dores.component';
 import { AnamnseComponent } from './components/anamnse/anamnse.component';
+import { PlanosComponent } from './components/planos/planos.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,12 @@ const routes: Routes = [
   {
     path: 'dores',
     component: DoresComponent
-  }
+  },
+  {
+    path: 'planos',
+    component: PlanosComponent
+  },
+
 ];
 
 @NgModule({
